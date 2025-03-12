@@ -12,7 +12,6 @@ This project is a **multi-tenant SaaS (Software-as-a-Service) API** that enables
 ## Tech Stack
 - **Backend**: Django REST Framework (DRF)
 - **Authentication**: JWT-based authentication
-- **Database**: PostgreSQL (supports multi-tenancy)
 - **API Documentation**: drf-spectacular (OpenAPI/Swagger)
 
 ## API Documentation
