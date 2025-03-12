@@ -15,11 +15,10 @@ This project is a **multi-tenant SaaS (Software-as-a-Service) API** that enables
 - **Database**: PostgreSQL (supports multi-tenancy)
 - **API Documentation**: drf-spectacular (OpenAPI/Swagger)
 
-API Documentation
+## API Documentation
 
-For a full list of API endpoints, check out the Swagger documentation:
-
-🔗 Swagger UI
+- For a full list of API endpoints, check out the Swagger documentation:
+ - 🔗 Swagger UI
 ## API Endpoints
 ### Organization & Subscription Management
 - **Create Organization & Subscription**: `POST /organization/`
