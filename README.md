@@ -4,7 +4,6 @@
 This project is a **multi-tenant SaaS (Software-as-a-Service) API** that enables organizations to create accounts, manage users, and handle subscriptions.
 
 ## Features
-- Multi-tenancy support
 - Organization and subscription management
 - User authentication and management
 - Project and task management
