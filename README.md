@@ -17,7 +17,8 @@ This project is a **multi-tenant SaaS (Software-as-a-Service) API** that enables
 ## API Documentation
 
 - For a full list of API endpoints, check out the Swagger documentation:
- - 🔗 Swagger UI
+- 🔗 [Swagger UI](http://127.0.0.1:8000/api/docs/)
+
 ## API Endpoints
 ### Organization & Subscription Management
 - **Create Organization & Subscription**: `POST /organization/`
@@ -65,12 +66,6 @@ This project is a **multi-tenant SaaS (Software-as-a-Service) API** that enables
   ```sh
   Authorization: Bearer <your_token>
   ```
-
-## Contributing
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature-xyz`)
-3. Commit changes (`git commit -m 'Add new feature'`)
-4. Push to your fork and create a Pull Request
 
 ## License
 This project is licensed under the MIT License.
