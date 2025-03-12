@@ -15,34 +15,11 @@ This project is a **multi-tenant SaaS (Software-as-a-Service) API** that enables
 - **Database**: PostgreSQL (supports multi-tenancy)
 - **API Documentation**: drf-spectacular (OpenAPI/Swagger)
 
-## Models
-### 1. Organization
-- `name`: Organization name
-- `subscription_plan`: Linked to `SubscriptionPlan`
-- `created_at`: Timestamp
+API Documentation
 
-### 2. User
-- Uses Django’s built-in `User` model
-- Linked to an `Organization`
+For a full list of API endpoints, check out the Swagger documentation:
 
-### 3. SubscriptionPlan
-- `name`: Plan name
-- `price`: Cost of the plan
-- `max_users`: Limit of users per organization
-- `features`: List of included features
-
-### 4. Project
-- `organization`: Belongs to an Organization
-- `title`: Project title
-- `description`: Project details
-- `created_at`: Timestamp
-
-### 5. Task
-- `project`: Belongs to a Project
-- `assigned_user`: User responsible for the task
-- `due_date`: Deadline
-- `status`: Pending, In Progress, Completed, Cancelled
-
+🔗 Swagger UI
 ## API Endpoints
 ### Organization & Subscription Management
 - **Create Organization & Subscription**: `POST /organization/`
