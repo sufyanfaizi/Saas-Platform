@@ -18,6 +18,36 @@ This project is a **multi-tenant SaaS (Software-as-a-Service) API** that enables
 - For a full list of API endpoints, check out the Swagger documentation:
 - 🔗 [Swagger UI](http://127.0.0.1:8000/api/docs/)
 
+## Installation (Docker)
+### 1️⃣ Build the Docker Image
+```bash
+docker build -t django_app .
+```
+
+### 2️⃣ Run the Django Application
+Run the container in detached mode (background):
+```bash
+docker run -d -p 8000:8000 django_app
+```
+
+### 3️⃣ Check Running Containers
+To verify the app is running:
+```bash
+docker ps
+```
+
+### 4️⃣ Stop the Container
+To stop the running container:
+```bash
+docker stop <container_id>
+```
+
+### 5️⃣ Remove the Container (Optional)
+```bash
+docker rm <container_id>
+```
+
+
 ## API Endpoints
 ### Organization & Subscription Management
 - **Create Organization & Subscription**: `POST /organization/`
@@ -68,4 +98,6 @@ This project is a **multi-tenant SaaS (Software-as-a-Service) API** that enables
 
 ## License
 This project is licensed under the MIT License.
+
+
 
