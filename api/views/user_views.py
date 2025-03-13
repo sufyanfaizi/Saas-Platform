@@ -14,7 +14,7 @@ from django.shortcuts import get_object_or_404
 from drf_spectacular.utils import extend_schema
 from django.contrib.auth import authenticate
 from drf_spectacular.utils import extend_schema, OpenApiParameter
-
+from ..permissions import IsAdminUser  
 
 @extend_schema(
     summary="Register User",
@@ -28,10 +28,9 @@ def register_user(request):
         user = User.objects.create_user(
             username=serializer.validated_data['username'],
             email=serializer.validated_data['email'],
-            password=serializer.validated_data['password']
-        )
-        return Response(UserRegistrationSerializer(user).data, status=status.HTTP_201_CREATED)
-    
+            password=serializer.validated_data['password']        )
+        print("user is saved")
+        return Response({"message": "User registered successfully!", "user": serializer.data}, status=status.HTTP_201_CREATED)    
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
@@ -88,11 +87,8 @@ def login_user(request):
     }
 )
 @api_view(['POST'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated,IsAdminUser])
 def invite_user(request, org_id):
-    if not request.user.is_staff:
-        return Response({"error": "Only admins can invite users"}, status=status.HTTP_403_FORBIDDEN)
-
     serializer = InviteUserSerializer(data=request.data)
     if serializer.is_valid():
         username = serializer.validated_data['username']
@@ -124,11 +120,8 @@ def invite_user(request, org_id):
     }
 )
 @api_view(['DELETE'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated , IsAdminUser])
 def remove_user(request, org_id):
-    if not request.user.is_staff:
-        return Response({"error": "Only admins can delete users"}, status=status.HTTP_403_FORBIDDEN)
-
     serializer = RemoveUserSerializer(data=request.data)
     if serializer.is_valid():
         username = serializer.validated_data['username']
@@ -139,7 +132,6 @@ def remove_user(request, org_id):
         if not user_org.exists():
             return Response({"error": "User is not part of this organization"}, status=status.HTTP_400_BAD_REQUEST)
         
-        # Remove user from the organization
         user_org.delete()
         return Response({"message": "User removed successfully"}, status=status.HTTP_200_OK)
 

@@ -3,6 +3,8 @@ from rest_framework.decorators import action, api_view, permission_classes
 from rest_framework.response import Response
 from rest_framework import status
 
+from api.permissions import IsAdminUser
+
 # Create your views here.
 from ..serializers import *
 from drf_yasg.utils import swagger_auto_schema
@@ -67,14 +69,12 @@ def change_subscription(request, org_id):
     
 
 @api_view(['GET'])
-@permission_classes([IsAuthenticated])
+@permission_classes([IsAuthenticated , IsAdminUser])
 def get_organization_details(request, org_id):
     try:
-        if request.user.is_staff:
             org = Organization.objects.get(id=org_id)
             serializer = OrganizationSerializer(org)
             return Response(serializer.data)
-        return Response({"error": "Unauthorized"}, status=403)
     except Organization.DoesNotExist:
         return Response({"error": "Organization not found"}, status=404)
     

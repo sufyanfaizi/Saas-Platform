@@ -39,6 +39,8 @@ class UserRegistrationSerializer(serializers.Serializer):
     username = serializers.CharField(max_length=150, help_text="Username of the user")
     email = serializers.EmailField(help_text="Email of the user")
     password = serializers.CharField(write_only=True, help_text="Password of the user")
+    isAdmin = serializers.BooleanField(write_only=True, default=False, help_text="Indicates if the user should have admin privileges"
+    )
 
 
 class UserLoginSerializer(serializers.Serializer):
