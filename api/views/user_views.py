@@ -14,7 +14,7 @@ from django.shortcuts import get_object_or_404
 from drf_spectacular.utils import extend_schema
 from django.contrib.auth import authenticate
 from drf_spectacular.utils import extend_schema, OpenApiParameter
-from ..permissions import IsAdminUser  
+from ..permissions import IsAdminUser  # Import custom permission
 
 @extend_schema(
     summary="Register User",
@@ -28,9 +28,11 @@ def register_user(request):
         user = User.objects.create_user(
             username=serializer.validated_data['username'],
             email=serializer.validated_data['email'],
-            password=serializer.validated_data['password']        )
-        print("user is saved")
-        return Response({"message": "User registered successfully!", "user": serializer.data}, status=status.HTTP_201_CREATED)    
+            password=serializer.validated_data['password'],
+            is_staff = serializer.validated_data['isAdmin']
+        )
+        return Response(UserRegistrationSerializer(user).data, status=status.HTTP_201_CREATED)
+    
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
