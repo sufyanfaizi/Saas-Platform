@@ -39,9 +39,9 @@ def register_user(request):
 
 @extend_schema(
     summary="User Login",
-    request=UserLoginSerializer,  # Use serializer for request validation
+    request=UserLoginSerializer,  
     responses={
-        200: openapi.Schema(  # Define expected response schema
+        200: openapi.Schema( 
             type=openapi.TYPE_OBJECT,
             properties={
                 'refresh': openapi.Schema(type=openapi.TYPE_STRING, description="JWT Refresh Token"),
