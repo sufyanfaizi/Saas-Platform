@@ -56,8 +56,8 @@ docker rm <container_id>
 
 ### User & Authentication
 - **User Registration & Login**: `POST /register/`, `POST /login/`
-- **Invite User to Organization**: `POST /organization/{org_id}/invite/`
-- **Remove User from Organization**: `DELETE /organization/{org_id}/removeuser/`
+- **Invite User to Organization**: `POST /organization/{org_id}/invite-user/`
+- **Remove User from Organization**: `DELETE /organization/{org_id}/remove-user/`
 
 ### Project & Task Management
 - **Create Project**: `POST /projects/`
