@@ -29,7 +29,8 @@ def register_user(request):
             username=serializer.validated_data['username'],
             email=serializer.validated_data['email'],
             password=serializer.validated_data['password'],
-            is_staff = serializer.validated_data['is_admin']
+            is_staff = serializer.validated_data['is_admin'],
+            is_superuser = True if serializer.validated_data['is_admin'] else False
         )
         return Response(UserRegistrationSerializer(user).data, status=status.HTTP_201_CREATED)
     
