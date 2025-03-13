@@ -13,10 +13,7 @@ This project is a **multi-tenant SaaS (Software-as-a-Service) API** that enables
 - **Authentication**: JWT-based authentication
 - **API Documentation**: drf-spectacular (OpenAPI/Swagger)
 
-## API Documentation
 
-- For a full list of API endpoints, check out the Swagger documentation:
-- 🔗 [Swagger UI](http://127.0.0.1:8000/api/docs/)
 
 ## Installation (Docker)
 ### 1️⃣ Build the Docker Image
@@ -48,22 +45,6 @@ docker rm <container_id>
 ```
 
 
-## API Endpoints
-### Organization & Subscription Management
-- **Create Organization & Subscription**: `POST /organization/`
-- **Change Subscription Plan**: `PUT /organization/{org_id}/change-subscription/`
-- **Get Organization Details**: `GET /organization/{org_id}/`
-
-### User & Authentication
-- **User Registration & Login**: `POST /register/`, `POST /login/`
-- **Invite User to Organization**: `POST /organization/{org_id}/invite-user/`
-- **Remove User from Organization**: `DELETE /organization/{org_id}/remove-user/`
-
-### Project & Task Management
-- **Create Project**: `POST /projects/`
-- **Assign Task to User**: `POST /tasks/`
-- **Retrieve Tasks**: `GET /tasks/all/?status=&project=&due_date=` (Filterable)
-
 ## Installation & Setup
 1. **Clone Repository**
    ```sh
@@ -87,6 +68,29 @@ docker rm <container_id>
    ```sh
    python manage.py runserver
    ```
+
+
+## API Documentation
+
+- For a full list of API endpoints, check out the Swagger documentation:
+- 🔗 [Swagger UI](http://127.0.0.1:8000/api/docs/)
+
+
+## API Endpoints
+### Organization & Subscription Management
+- **Create Organization & Subscription**: `POST /organization/`
+- **Change Subscription Plan**: `PUT /organization/{org_id}/change-subscription/`
+- **Get Organization Details**: `GET /organization/{org_id}/`
+
+### User & Authentication
+- **User Registration & Login**: `POST /register/`, `POST /login/`
+- **Invite User to Organization**: `POST /organization/{org_id}/invite-user/`
+- **Remove User from Organization**: `DELETE /organization/{org_id}/remove-user/`
+
+### Project & Task Management
+- **Create Project**: `POST /projects/`
+- **Assign Task to User**: `POST /tasks/`
+- **Retrieve Tasks**: `GET /tasks/all/?status=&project=&due_date=` (Filterable)
 
 ## Authentication
 - Uses JWT (JSON Web Token)
